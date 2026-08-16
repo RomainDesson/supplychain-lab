@@ -1,5 +1,11 @@
 # My supplain chain security lab
 
+## Disclaimer
+
+> I will use AI to find deep informations about tools I will use and ask follow up questions on them to speed up the learning process and be able to dive deeper on topics that I'm genuinly interested in (like how does grype work under the hood).
+
+> I will **not** use AI to write, code or document my journey. The goal is not to show off what I'm able to do but genuinly to learn skills and make the learn process plublic as it could help other devs. Every README file and potential other code files are guaranteed 100% **no AI**.
+
 ## Purpose
 
 The purpose of this repository is to train myself on making secure production grade applications supply chains.\
