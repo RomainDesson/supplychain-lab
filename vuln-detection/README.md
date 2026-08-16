@@ -15,7 +15,7 @@ If there is no cache folder or the data are flagged as obsoletes, it will pull t
 - Then if you passed a SBOM file as argument, it will compare it to the vulnerable versions in its database.\
 If you don't passed a SBOM file, it will first generate one with the `syft` tool and make the same analyzing.
 
-## Local usage
+## Tool usage
 
 For local usage, we can also use the `grype` tool directly in command line with, for SBOM scanning : `grype ./path-to-sbom`.
 It will output a formated table of reported vulnerabilities : 
@@ -27,6 +27,8 @@ next        15.3.8     15.4.7    npm   GHSA-4342-x723-ch2f  Medium    2.5% (83rd
 ```
 
 In this table, we can have quick informations about the name of the vulnerable dependencies, the patch version GHSA ID and Severity.\
+> If instead of GHSA ID we prefer to have de CVE ID, we can use the `--by-cve` flag.\
+> And if we want to sort by another property (default sorted by `risk`), we can use the `--sort-by 'property'` flag.\
 It gives a good overview of our total production vulnerabilities.
 
 > Compared to the `npm audit` command for exemple, using a SBOM instead of the whole package.lock.json file for the audit help us know exactly what is shipped to the clients with our application.
@@ -35,4 +37,5 @@ It gives a good overview of our total production vulnerabilities.
 We are also able to generate json output for vulnerabilities scanning to use it in other softwares for example.\
 We can do so with `grype ./path-to-sbom -o json` here, it will output the json file in the command line. We can output it directly in a file, like with syft with `grype ./path-to-sbom -o json=./vuln-report`, then, we read and store it with `jq . ./vuln-report.json > vuln.json ` to put it in a vuln.json file.\
 > In one line, it is : `grype ./path-to-sbom -o json | jq . > vuln-report.json`
+
 
